@@ -60,5 +60,8 @@ export class LeadRegisterComponent {
       alert("Registration not complete");
     }
   }
+  clicked():void{
+    alert("clicked");
+  }
   
 }

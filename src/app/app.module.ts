@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LeadRegisterComponent } from './Component/lead-register/lead-register.component';
 import { SignInComponent } from './Component/sign-in/sign-in.component';
 import { SignUpComponent } from './Component/sign-up/sign-up.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SignUpComponent } from './Component/sign-up/sign-up.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

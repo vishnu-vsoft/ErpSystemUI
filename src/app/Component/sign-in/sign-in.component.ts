@@ -37,10 +37,7 @@ export class SignInComponent {
    * On submit form
    */
 
-  clickable():void{
-    
-    this.router.navigate(['/leadRegister']);
-  }
+
   onSubmit() {
     this.submitted = true;
 
@@ -49,6 +46,7 @@ export class SignInComponent {
     const email = this.f['email'].value;
     const name = this.f['username'].value;
     const password = this.f['password'].value;
+    this.router.navigate(['/leadRegister']);
 
     
     

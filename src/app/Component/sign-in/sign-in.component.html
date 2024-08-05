@@ -10,7 +10,6 @@
                 <div class="col-7">
                   <div class="text-primary p-4">
                     <h5 class="text-primary">Free Register</h5>
-                    <p>Get your free Skote account now.</p>
                   </div>
                 </div>
                 <div class="col-5 align-self-end">
@@ -29,7 +28,7 @@
                 </a>
               </div>
               <div class="p-2">
-  
+
                 <form class="needs-validation" [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
                     <!-- Success Message -->
                     <div *ngIf="successmsg" class="alert alert-success" role="alert">
@@ -49,8 +48,7 @@
                         class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && signupForm.get('username')?.errors }"
                         id="username"
-                        placeholder="Enter username"
-                      />
+                        placeholder="Enter username"/>
                       <div *ngIf="submitted && signupForm.get('username')?.errors" class="invalid-feedback">
                         <div *ngIf="signupForm.get('username')?.hasError('required')">
                           Username is required
@@ -86,8 +84,7 @@
                         class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && signupForm.get('password')?.errors }"
                         id="password"
-                        placeholder="Password"
-                      />
+                        placeholder="Password"/>
                       <div *ngIf="submitted && signupForm.get('password')?.errors" class="invalid-feedback">
                         <div *ngIf="signupForm.get('password')?.hasError('required')">
                           Password is required
