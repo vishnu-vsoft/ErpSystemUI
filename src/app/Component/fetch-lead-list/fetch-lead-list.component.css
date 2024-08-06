@@ -1,0 +1,8 @@
+.clickable-row {
+    cursor: pointer; /* or any other cursor style */
+    transition: background-color 0.3s; /* Optional: smooth transition effect */
+  }
+  
+  .clickable-row:hover {
+    background-color: #43aff7; /* Change to your desired hover color */
+  }

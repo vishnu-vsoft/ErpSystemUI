@@ -1,0 +1,72 @@
+<div class="account-pages my-5 pt-sm-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-10">
+          <div class="card overflow-hidden">
+            <div class="bg-primary-subtle">
+              <div class="row">
+                <div class="col-12">
+                  <div class="text-primary p-4">
+                    <h5 class="text-primary">Lead List</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-0">
+              <div>
+                <a routerLink="/">
+                  <div class="avatar-md profile-user-wid mb-4">
+                    <span class="avatar-title rounded-circle bg-light">
+                      <img src="" alt="" class="rounded-circle" height="34">
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div class="p-2">
+                <div *ngIf="fetchLeadData; else noData">
+                  <table class="table table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>Id</th>
+                        <th>Lead Name</th>
+                        <th>Location</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Requirement</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let lead of leadFetch"  class="clickable-row">
+                        <td>{{ lead.Id }}</td>
+                        <td>{{ lead.LeadName }}</td>
+                        <td>{{ lead.Location }}</td>
+                        <td>{{ lead.LeadAddress }}</td>
+                        <td>{{ lead.LeadEmail }}</td>
+                        <td>{{ lead.HighLevelRequirement }}</td>
+                        <td>
+                            <button (click)="getRowData(lead)">Get Data</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <ng-template #noData>
+                  <div class="alert alert-info" role="alert">
+                    No data available.
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+          <!-- end card -->
+          <div class="mt-5 text-center">
+            <p>© {{ year }} ErpSystem. <i class="mdi mdi-heart text-danger"></i></p>
+          </div>
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </div>
+  

@@ -30,22 +30,20 @@ export class SignInComponent {
     this.year = new Date().getFullYear();
   }
 
-  // convenience getter for easy access to form fields
   get f() { return this.signupForm.controls; }
+  clickable():void{
+    alert("clicked");
+    this.router.navigate(['/fetchLeadList']);
+  }
 
-  /**
-   * On submit form
-   */
-
-
+  
   onSubmit() {
     this.submitted = true;
-
-    // stop here if form is invalid
 
     const email = this.f['email'].value;
     const name = this.f['username'].value;
     const password = this.f['password'].value;
+
     this.router.navigate(['/leadRegister']);
 
     

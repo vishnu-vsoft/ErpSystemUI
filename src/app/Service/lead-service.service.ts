@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpClientModule } from '@angular/common/http';
 import { Lead } from '../Model/lead';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,5 +14,13 @@ export class LeadServiceService {
     return this.http.post(this.baseUrl + "Lead/RegisterLead",lead,{
       responseType:'json'
     });
+  }
+
+  fetchLead()  :Observable<Lead[]>{
+    return this.http.get<Lead[]>(this.baseUrl + "FetchLead/GetLeadList")
+  }
+
+  fetchSingleLead(id:string) : Observable<Lead[]>{
+    return this.http.get<Lead[]>(this.baseUrl + `FetchLead/${id}`)
   }
 }

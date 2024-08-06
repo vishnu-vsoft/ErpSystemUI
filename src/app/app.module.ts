@@ -7,13 +7,17 @@ import { LeadRegisterComponent } from './Component/lead-register/lead-register.c
 import { SignInComponent } from './Component/sign-in/sign-in.component';
 import { SignUpComponent } from './Component/sign-up/sign-up.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FetchLeadListComponent } from './Component/fetch-lead-list/fetch-lead-list.component';
+import { LeadServiceService } from './Service/lead-service.service';
+import { ViewLeadComponent } from './Component/view-lead/view-lead.component';
 @NgModule({
   declarations: [
     AppComponent,
     LeadRegisterComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    FetchLeadListComponent,
+    ViewLeadComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LeadServiceService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

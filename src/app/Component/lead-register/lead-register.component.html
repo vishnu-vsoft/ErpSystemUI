@@ -5,7 +5,7 @@
         <div class="card overflow-hidden">
           <div class="bg-primary-subtle">
             <div class="row">
-              <div class="col-7">
+              <div class="col-9">
                 <div class="text-primary p-4">
                   <h5 class="text-primary">Lead Registration</h5>
                   <p>Fill out the form to register a new lead.</p>
@@ -28,12 +28,12 @@
             </div>
             <div class="p-2">
               <form [formGroup]="leadRegisterForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
-                <!-- Success Message -->
+                
                 <div *ngIf="successmsg" class="alert alert-success" role="alert">
                   Registration successful.
                 </div>
   
-                <!-- Error Message -->
+                
                 <div *ngIf="error" class="alert alert-danger" role="alert">
                   {{ error }}
                 </div>
@@ -193,7 +193,7 @@
                 </div>
   
                 <div class="mt-4 d-grid">
-                  <button class="btn btn-primary" type="submit" [disabled]="leadRegisterForm.invalid" (click)="clicked()">
+                  <button class="btn btn-primary" type="submit" [disabled]="leadRegisterForm.invalid">
                     Register Lead
                   </button>
                 </div>

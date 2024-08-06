@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Lead } from 'src/app/Model/lead';
 import { LeadServiceService } from 'src/app/Service/lead-service.service';
-//import { Lead } from 'src/app/Model/lead';
+
 
 @Component({
   selector: 'app-lead-register',
@@ -19,9 +18,11 @@ export class LeadRegisterComponent {
   submitted:boolean = false;
   successmsg : boolean = false;
   error :string | null = null;
+  selectedLead:Lead | null = null;
 
   constructor(private fb: FormBuilder,
-    private route:Router,private leadRegisterServ : LeadServiceService) {}
+    private route:Router,
+    private leadRegisterServ : LeadServiceService) {}
 
   ngOnInit(): void {
     this.leadRegisterForm = this.fb.group({
@@ -60,8 +61,6 @@ export class LeadRegisterComponent {
       alert("Registration not complete");
     }
   }
-  clicked():void{
-    alert("clicked");
-  }
+  
   
 }
