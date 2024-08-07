@@ -1,5 +1,7 @@
+<div class="route" *ngIf="showSidenav">
+  <app-sidenav></app-sidenav>
+</div>
 
-<div class="sideNav">
-    <app-sidenav></app-sidenav>
+<div class="main-content">
+  <router-outlet></router-outlet>
   </div>
-<router-outlet></router-outlet>

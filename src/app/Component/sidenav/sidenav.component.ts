@@ -10,4 +10,8 @@ export class SidenavComponent {
   collapse:boolean= true;
   navData : NavItem[] = navbarData;
 
+  toggleCollapse(){
+    this.collapse = !this.collapse;
+  }
+
 }
