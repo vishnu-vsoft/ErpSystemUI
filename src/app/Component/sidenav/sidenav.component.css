@@ -1,0 +1,91 @@
+.sidenav {
+    background: #263238; /* Background color for the sidebar */
+    transition: all .5s ease; /* Smooth transition for width changes */
+    position: fixed; /* Fixed position to stick sidebar to the left */
+    z-index: 1; /* Ensure sidebar stays above other content */
+    top: 0; /* Align to the top of the viewport */
+    height: 100vh; /* Full viewport height */
+    box-shadow: 0.063rem 0 1.25rem 0 #8690a3; /* Shadow effect */
+    width: 5rem; /* Default width of the sidebar */
+    overflow: hidden; /* Hide content overflow by default */
+
+    &.sidenav-collapse {
+        width: 16.5256rem; /* Expanded width of the sidebar */
+    }
+
+    .logo-container {
+        display: flex; /* Flexbox layout for alignment */
+        align-items: center; /* Center items vertically */
+        padding: .938rem; /* Padding around the logo container */
+        width: 100%; /* Full width of the sidebar */
+        box-sizing: border-box; /* Include padding in width calculation */
+
+        .logo {
+            background: #fff; /* Background color for logo button */
+            text-align: center; /* Center text inside logo button */
+            width: 3rem; /* Fixed width of logo button */
+            min-width: 3rem; /* Minimum width to prevent shrinking */
+            border-radius: .313rem; /* Rounded corners for logo button */
+            padding: 0.5rem; /* Padding inside the logo button */
+            font-size: 24px; /* Font size of the logo text */
+            font-weight: 900; /* Font weight for logo */
+            cursor: pointer; /* Pointer cursor on hover */
+            border: none; /* No border */
+        }
+
+        .logo-text {
+            margin-left: 1.5rem; /* Margin to the right of the logo */
+            font-size: 24px; /* Font size for logo text */
+            font-weight: 700; /* Font weight for logo text */
+            color: #fff; /* Text color */
+        }
+
+        .btn-close {
+            margin-left: auto; /* Push to the right */
+            cursor: pointer; /* Pointer cursor on hover */
+            width: 2rem; /* Fixed width of close button */
+            border-radius: 50%; /* Circular close button */
+            background-color: transparent; /* Transparent background */
+            border: none; /* No border */
+        }
+
+        .fa-times {
+            color: #fff; /* Color of the close icon */
+            font-size: 24px; /* Font size of the close icon */
+        }
+    }
+
+    .sidenav-table {
+        display: table; /* Table layout for the sidebar */
+        width: 100%; /* Full width of the sidebar */
+        height: calc(100% - 2rem); /* Adjust height to fit in sidebar */
+    }
+
+    .sidenav-table-row {
+        display: table-row; /* Display each item as a row */
+        width: 100%; /* Full width of each row */
+    }
+
+    .sidenav-table-cell {
+        display: table-cell; /* Display each item as a cell */
+        padding: .625rem; /* Padding inside each cell */
+        text-align: left; /* Align text to the left */
+        color: #f3f3f3; /* Text color */
+        text-decoration: none; /* No underline */
+        transition: color .3s ease; /* Transition for color changes */
+        display: flex; /* Flexbox layout for icon and text alignment */
+        align-items: center; /* Center items vertically */
+    }
+
+    .sidenav-link-icon {
+        font-size: 22px; /* Font size for the icon */
+        width: 2rem; /* Fixed width for the icon */
+        min-width: 2rem; /* Minimum width for the icon */
+        margin-right: 1rem; /* Margin to the right of the icon */
+        text-align: center; /* Center icon inside its container */
+    }
+
+    .sidenav-link-text {
+        font-size: 16px; /* Font size for link text */
+    }
+}

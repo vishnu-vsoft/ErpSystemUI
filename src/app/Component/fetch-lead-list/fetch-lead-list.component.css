@@ -6,3 +6,73 @@
   .clickable-row:hover {
     background-color: #43aff7; /* Change to your desired hover color */
   }
+
+  .account-pages {
+    background-color: #f8f9fa; /* Light background similar to the registration form */
+}
+
+.card {
+    border-radius: 0.375rem; /* Consistent border-radius with registration form */
+    border: 1px solid #dee2e6; /* Border color for card */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow */
+}
+
+.bg-primary-subtle {
+    background-color: #e9ecef; /* Light background for the card header */
+}
+
+.text-primary {
+    color: #007bff; /* Primary text color */
+}
+
+.table {
+    margin-bottom: 0; /* Remove default margin for consistent spacing */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2; /* Alternate row colors for readability */
+}
+
+.thead-dark th {
+    background-color: #343a40; /* Dark header background */
+    color: #fff; /* White text for header */
+}
+
+.btn {
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border for button */
+    border-radius: 0.375rem; /* Consistent border-radius with card */
+    padding: 0.375rem 0.75rem; /* Padding for button */
+    font-size: 0.875rem; /* Font size for button */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker button color on hover */
+}
+
+.alert-info {
+    background-color: #d1ecf1; /* Light blue background for alert */
+    color: #0c5460; /* Darker text color for alert */
+    border-color: #bee5eb; /* Border color for alert */
+}
+
+.text-center {
+    text-align: center; /* Center text alignment */
+}
+
+.mt-5 {
+    margin-top: 3rem; /* Margin top for spacing */
+}
+
+.thead-light-blue th {
+    background-color: #ADD8E6; /* Light blue background */
+    color: #000; /* Text color for better contrast */
+}
+
+.container{
+  position: relative;
+  margin: 0 auto;
+  padding: 1rem;
+}

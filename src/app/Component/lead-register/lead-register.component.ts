@@ -19,6 +19,7 @@ export class LeadRegisterComponent {
   successmsg : boolean = false;
   error :string | null = null;
   selectedLead:Lead | null = null;
+  isSidebarClosed  = false;
 
   constructor(private fb: FormBuilder,
     private route:Router,
@@ -45,6 +46,10 @@ export class LeadRegisterComponent {
     });
   }
 
+  toggleSidebar() {
+    this.isSidebarClosed = !this.isSidebarClosed;
+  }
+
   onSubmit(): void {
     this.year = new Date().getFullYear();
     if (this.leadRegisterForm.valid) {
@@ -61,6 +66,4 @@ export class LeadRegisterComponent {
       alert("Registration not complete");
     }
   }
-  
-  
 }

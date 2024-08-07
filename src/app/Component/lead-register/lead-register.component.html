@@ -1,215 +1,233 @@
-<div class="account-pages my-5 pt-sm-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6 col-xl-5">
-        <div class="card overflow-hidden">
-          <div class="bg-primary-subtle">
-            <div class="row">
-              <div class="col-9">
-                <div class="text-primary p-4">
-                  <h5 class="text-primary">Lead Registration</h5>
-                  <p>Fill out the form to register a new lead.</p>
-                </div>
-              </div>
-              <div class="col-5 align-self-end">
-                <img src="" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
-          <div class="card-body pt-0">
-            <div>
-              <a routerLink="/">
-                <div class="avatar-md profile-user-wid mb-4">
-                  <span class="avatar-title rounded-circle bg-light">
-                    <img src="" alt="" class="rounded-circle" height="34">
-                  </span>
-                </div>
-              </a>
-            </div>
-            <div class="p-2">
-              <form [formGroup]="leadRegisterForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
-                
-                <div *ngIf="successmsg" class="alert alert-success" role="alert">
-                  Registration successful.
-                </div>
+
+<div class="container-fluid">
   
-                
-                <div *ngIf="error" class="alert alert-danger" role="alert">
-                  {{ error }}
-                </div>
-  
-                <div class="mb-3">
-                  <label for="leadName" class="form-label">Name</label>
-                  <input
-                    type="text"
-                    id="leadName"
-                    formControlName="leadName"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadName')?.errors }"
-                    placeholder="Enter name"
-                  />
-                  <div *ngIf="submitted && leadRegisterForm.get('leadName')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('leadName')?.hasError('required')">
-                      Name is required
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mb-3">
-                  <label for="leadMobileNo" class="form-label">Mobile No</label>
-                  <input
-                    type="tel"
-                    id="leadMobileNo"
-                    formControlName="leadMobileNo"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadMobileNo')?.errors }"
-                    placeholder="Enter mobile number"
-                  />
-                  <div *ngIf="submitted && leadRegisterForm.get('leadMobileNo')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('leadMobileNo')?.hasError('required')">
-                      Mobile number is required
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mb-3">
-                  <label for="location" class="form-label">Location</label>
-                  <input
-                    type="text"
-                    id="location"
-                    formControlName="location"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('location')?.errors }"
-                    placeholder="Enter location"
-                  />
-                  <div *ngIf="submitted && leadRegisterForm.get('location')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('location')?.hasError('required')">
-                      Location is required
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mb-3">
-                  <label for="leadAddress" class="form-label">Address</label>
-                  <input
-                    type="text"
-                    id="leadAddress"
-                    formControlName="leadAddress"
-                    class="form-control"
-                    placeholder="Enter address"
-                  />
-                </div>
-  
-                <div class="mb-3">
-                  <label for="leadEmail" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    id="leadEmail"
-                    formControlName="leadEmail"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadEmail')?.errors }"
-                    placeholder="Enter email"
-                  />
-                  <div *ngIf="submitted && leadRegisterForm.get('leadEmail')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('leadEmail')?.hasError('required')">
-                      Email is required
-                    </div>
-                    <div *ngIf="leadRegisterForm.get('leadEmail')?.hasError('email')">
-                      Enter a valid email address
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mb-3">
-                  <label for="highLevelRequirement" class="form-label">Requirement</label>
-                  <textarea
-                    id="highLevelRequirement"
-                    formControlName="highLevelRequirement"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('highLevelRequirement')?.errors }"
-                    placeholder="Enter requirement"
-                  ></textarea>
-                  <div *ngIf="submitted && leadRegisterForm.get('highLevelRequirement')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('highLevelRequirement')?.hasError('required')">
-                      Requirement is required
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mb-3">
-                  <label for="leadStatus" class="form-label">Status</label>
-                  <select
-                    id="leadStatus"
-                    formControlName="leadStatus"
-                    class="form-select"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadStatus')?.errors }"
-                  >
-                    <option value="">Select Status</option>
-                    <option value="Open">Open</option>
-                    <option value="ClosedWon">Closed Won</option>
-                    <option value="ClosedLost">Closed Lost</option>
-                  </select>
-                  <div *ngIf="submitted && leadRegisterForm.get('leadStatus')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('leadStatus')?.hasError('required')">
-                      Status is required
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mb-3">
-                  <label for="leadFeasibility" class="form-label">Feasibility</label>
-                  <select
-                    id="leadFeasibility"
-                    formControlName="leadFeasibility"
-                    class="form-select"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadFeasibility')?.errors }"
-                  >
-                    <option value="NotFeasible">Not Feasible</option>
-                    <option value="Feasible">Feasible</option>
-                    <option value="HighFeasible">High Feasible</option>
-                  </select>
-                  <div *ngIf="submitted && leadRegisterForm.get('leadFeasibility')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('leadFeasibility')?.hasError('required')">
-                      Feasibility is required
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mb-3" *ngIf="isRemarksVisible">
-                  <label for="remarks" class="form-label">Remarks</label>
-                  <textarea
-                    id="remarks"
-                    formControlName="remarks"
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('remarks')?.errors }"
-                    placeholder="Enter remarks"
-                    required
-                  ></textarea>
-                  <div *ngIf="submitted && leadRegisterForm.get('remarks')?.errors" class="invalid-feedback">
-                    <div *ngIf="leadRegisterForm.get('remarks')?.hasError('required')">
-                      Remarks are required
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="mt-4 d-grid">
-                  <button class="btn btn-primary" type="submit" [disabled]="leadRegisterForm.invalid">
-                    Register Lead
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <!-- end card -->
-  
-        <div class="mt-5 text-center">
-          <p>Already have an account? <a routerLink="/auth/login" class="fw-medium text-primary">Login</a></p>
-          <p>© {{year}} ErpSystem. <i class="mdi mdi-heart text-danger"></i></p>
-        </div>
-      </div> <!-- end col -->
+  <div class="sidenav bg-primary-subtle text-primary" id="sidenav">
+    <button class="btn btn-primary toggle-btn" id="toggle-btn">☰</button>
+    <h2>Sidebar</h2>
+    <div class="navElements">
+      <a href="#">Dashboard</a>
+      <a href="#">Leads</a>
+      <a href="#">Reports</a>
+      <a href="#">Settings</a>
     </div>
-    <!-- end row -->
+    </div>
+
+<div class="main-content">
+  <div class="card overflow-hidden">
+    <div class="bg-primary-subtle">
+      <div class="row">
+        <div class="col-9">
+          <div class="text-primary p-4">
+            <h5 class="text-primary">Lead Registration</h5>
+            <p>Fill out the form to register a new lead.</p>
+          </div>
+        </div>
+        <div class="col-3 align-self-end">
+          <img src="" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="card-body pt-0">
+      <div>
+        <a routerLink="/">
+          <div class="avatar-md profile-user-wid mb-4">
+            <span class="avatar-title rounded-circle bg-light">
+              <img src="" alt="" class="rounded-circle" height="34">
+            </span>
+          </div>
+        </a>
+      </div>
+      <div class="p-2">
+        <form [formGroup]="leadRegisterForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+          
+          <div *ngIf="successmsg" class="alert alert-success" role="alert">
+            Registration successful.
+          </div>
+          
+          <div *ngIf="error" class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+
+          <div class="mb-3 row">
+            <label for="leadName" class="col-md-4 col-form-label">Name</label>
+            <div class="col-md-8">
+              <input
+                type="text"
+                id="leadName"
+                formControlName="leadName"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadName')?.errors }"
+                placeholder="Enter name"
+              />
+              <div *ngIf="submitted && leadRegisterForm.get('leadName')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('leadName')?.hasError('required')">
+                  Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="leadMobileNo" class="col-md-4 col-form-label">Mobile No</label>
+            <div class="col-md-8">
+              <input
+                type="tel"
+                id="leadMobileNo"
+                formControlName="leadMobileNo"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadMobileNo')?.errors }"
+                placeholder="Enter mobile number"
+              />
+              <div *ngIf="submitted && leadRegisterForm.get('leadMobileNo')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('leadMobileNo')?.hasError('required')">
+                  Mobile number is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="location" class="col-md-4 col-form-label">Location</label>
+            <div class="col-md-8">
+              <input
+                type="text"
+                id="location"
+                formControlName="location"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('location')?.errors }"
+                placeholder="Enter location"
+              />
+              <div *ngIf="submitted && leadRegisterForm.get('location')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('location')?.hasError('required')">
+                  Location is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="leadAddress" class="col-md-4 col-form-label">Address</label>
+            <div class="col-md-8">
+              <input
+                type="text"
+                id="leadAddress"
+                formControlName="leadAddress"
+                class="form-control"
+                placeholder="Enter address"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="leadEmail" class="col-md-4 col-form-label">Email</label>
+            <div class="col-md-8">
+              <input
+                type="email"
+                id="leadEmail"
+                formControlName="leadEmail"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadEmail')?.errors }"
+                placeholder="Enter email"
+              />
+              <div *ngIf="submitted && leadRegisterForm.get('leadEmail')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('leadEmail')?.hasError('required')">
+                  Email is required
+                </div>
+                <div *ngIf="leadRegisterForm.get('leadEmail')?.hasError('email')">
+                  Enter a valid email address
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="highLevelRequirement" class="col-md-4 col-form-label">Requirement</label>
+            <div class="col-md-8">
+              <textarea
+                id="highLevelRequirement"
+                formControlName="highLevelRequirement"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('highLevelRequirement')?.errors }"
+                placeholder="Enter requirement"
+              ></textarea>
+              <div *ngIf="submitted && leadRegisterForm.get('highLevelRequirement')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('highLevelRequirement')?.hasError('required')">
+                  Requirement is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="leadStatus" class="col-md-4 col-form-label">Status</label>
+            <div class="col-md-8">
+              <select
+                id="leadStatus"
+                formControlName="leadStatus"
+                class="form-select"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadStatus')?.errors }"
+              >
+                <option value="">Select Status</option>
+                <option value="Open">Open</option>
+                <option value="ClosedWon">Closed Won</option>
+                <option value="ClosedLost">Closed Lost</option>
+              </select>
+              <div *ngIf="submitted && leadRegisterForm.get('leadStatus')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('leadStatus')?.hasError('required')">
+                  Status is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row">
+            <label for="leadFeasibility" class="col-md-4 col-form-label">Feasibility</label>
+            <div class="col-md-8">
+              <select
+                id="leadFeasibility"
+                formControlName="leadFeasibility"
+                class="form-select"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadFeasibility')?.errors }"
+              >
+                <option value="NotFeasible">Not Feasible</option>
+                <option value="Feasible">Feasible</option>
+                <option value="HighFeasible">High Feasible</option>
+              </select>
+              <div *ngIf="submitted && leadRegisterForm.get('leadFeasibility')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('leadFeasibility')?.hasError('required')">
+                  Feasibility is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3 row" *ngIf="leadRegisterForm.get('leadStatus')?.value === 'ClosedLost' || leadRegisterForm.get('leadStatus')?.value === 'NotFeasible'">
+            <label for="remarks" class="col-md-4 col-form-label">Remarks</label>
+            <div class="col-md-8">
+              <textarea
+                id="remarks"
+                formControlName="remarks"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('remarks')?.errors }"
+                placeholder="Enter remarks"
+              ></textarea>
+              <div *ngIf="submitted && leadRegisterForm.get('remarks')?.errors" class="invalid-feedback">
+                <div *ngIf="leadRegisterForm.get('remarks')?.hasError('required')">
+                  Remarks are required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 d-grid">
+            <button class="btn btn-primary" type="submit" [disabled]="leadRegisterForm.invalid">
+              Register Lead
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <!-- end container -->
+  <!-- end card -->
+</div>
 </div>

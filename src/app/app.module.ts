@@ -10,6 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FetchLeadListComponent } from './Component/fetch-lead-list/fetch-lead-list.component';
 import { LeadServiceService } from './Service/lead-service.service';
 import { ViewLeadComponent } from './Component/view-lead/view-lead.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { SidenavComponent } from './Component/sidenav/sidenav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,13 +24,19 @@ import { ViewLeadComponent } from './Component/view-lead/view-lead.component';
     SignInComponent,
     SignUpComponent,
     FetchLeadListComponent,
-    ViewLeadComponent
+    ViewLeadComponent,
+    SidenavComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatToolbarModule
   ],
   providers: [
     LeadServiceService,
