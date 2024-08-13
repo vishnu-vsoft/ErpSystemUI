@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-root',
@@ -12,18 +10,11 @@ export class AppComponent {
   router:string | null = null;
   showSidenav : boolean = false;
 
-  constructor(private route:Router){}
+  constructor(){}
   ngOnInit(){
-    this.findRoute();
+    
   }
-  findRoute(){
-    this.router = this.route.url;
-    if(this.router == ''){
-      this.showSidenav =false;
-    }else{
-      this.showSidenav = true;
-    }
-  }
+  
 
 
   

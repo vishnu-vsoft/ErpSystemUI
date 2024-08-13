@@ -23,16 +23,16 @@ export class SignInComponent {
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      username: ['', ],
+      email: ['', ],
+      password: ['', ],
     });
     this.year = new Date().getFullYear();
   }
 
   get f() { return this.signupForm.controls; }
   clickable():void{
-    alert("clicked");
+    // alert("clicked");
     this.router.navigate(['/fetchLeadList']);
   }
 

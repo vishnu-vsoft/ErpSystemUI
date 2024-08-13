@@ -1,0 +1,31 @@
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  .main-content.sidenav-closed {
+    margin-left: 80px;
+  }
+  .navElements a{
+    padding-top:50px
+    
+}
+  @media (max-width: 768px) {
+    .sidenav {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: none;
+    }
+    .sidenav.open {
+      display: block;
+    }
+    .main-content {
+      margin-left: 0;
+    }
+    .sidenav .toggle-btn {
+      display: block;
+    }
+    
+  }
+  

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LeadServiceService } from 'src/app/Service/lead-service.service';
-import { FetchLeadListComponent } from '../fetch-lead-list/fetch-lead-list.component';
+import { FetchLeadListComponent } from '../../lead/fetch-lead-list/fetch-lead-list.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Lead } from 'src/app/Model/lead';
@@ -20,8 +20,6 @@ export class ViewLeadComponent {
   submitted = false;
   lead!:Lead;
 
-  isReadOnly: boolean = true;
-
   constructor(private service:LeadServiceService,
     private route:ActivatedRoute,
     private fb:FormBuilder,
@@ -33,9 +31,16 @@ export class ViewLeadComponent {
         leadAddress: ['', Validators.required],
         leadEmail: ['', [Validators.required, Validators.email]],
         highLevelRequirement: ['', Validators.required],
-        leadStatus: ['', Validators.required],
+        leadStatus: ['Open', Validators.required],
         leadFeasibility: ['', Validators.required],
         remarks: ['']
+      });
+
+      this.leadEditForm.get('leadStatus')?.valueChanges.subscribe(status => {
+        this.isRemarksVisible = status === 'ClosedLost';
+        if (!this.isRemarksVisible) {
+          this.leadEditForm.get('remarks')?.setValue(''); 
+        }
       });
     }
 

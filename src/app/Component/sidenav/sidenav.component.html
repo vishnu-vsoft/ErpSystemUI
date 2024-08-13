@@ -6,12 +6,13 @@
            
         </button>
     </div>
-    <div class="sidenav-table">
-        <div class="sidenav-table-row" *ngFor="let data of navData">
-            <a class="sidenav-table-cell" [routerLink]="[data.routeLink]">
+    <div class="sidenav-list">
+        <div class="sidenav-item" *ngFor="let data of navData">
+            <a class="sidenav-link" [routerLink]="[data.routeLink]">
                 <i class="sidenav-link-icon" [class]="data.icon"></i>
                 <span class="sidenav-link-text" *ngIf="collapse">{{data.label}}</span>
             </a>
         </div>
     </div>
 </div>
+

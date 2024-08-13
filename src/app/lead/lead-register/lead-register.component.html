@@ -1,16 +1,7 @@
 
 <div class="container-fluid">
   
-  <div class="sidenav bg-primary-subtle text-primary" id="sidenav">
-    <button class="btn btn-primary toggle-btn" id="toggle-btn">☰</button>
-    <h2>Sidebar</h2>
-    <div class="navElements">
-      <a href="#">Dashboard</a>
-      <a href="#">Leads</a>
-      <a href="#">Reports</a>
-      <a href="#">Settings</a>
-    </div>
-    </div>
+  
 
 <div class="main-content">
   <div class="card overflow-hidden">
@@ -77,6 +68,8 @@
                 class="form-control"
                 [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadMobileNo')?.errors }"
                 placeholder="Enter mobile number"
+                maxlength="10"
+                minlength="10"
               />
               <div *ngIf="submitted && leadRegisterForm.get('leadMobileNo')?.errors" class="invalid-feedback">
                 <div *ngIf="leadRegisterForm.get('leadMobileNo')?.hasError('required')">
@@ -157,28 +150,7 @@
               </div>
             </div>
           </div>
-
-          <div class="mb-3 row">
-            <label for="leadStatus" class="col-md-4 col-form-label">Status</label>
-            <div class="col-md-8">
-              <select
-                id="leadStatus"
-                formControlName="leadStatus"
-                class="form-select"
-                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadStatus')?.errors }"
-              >
-                <option value="">Select Status</option>
-                <option value="Open">Open</option>
-                <option value="ClosedWon">Closed Won</option>
-                <option value="ClosedLost">Closed Lost</option>
-              </select>
-              <div *ngIf="submitted && leadRegisterForm.get('leadStatus')?.errors" class="invalid-feedback">
-                <div *ngIf="leadRegisterForm.get('leadStatus')?.hasError('required')">
-                  Status is required
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           <div class="mb-3 row">
             <label for="leadFeasibility" class="col-md-4 col-form-label">Feasibility</label>
@@ -201,7 +173,7 @@
             </div>
           </div>
 
-          <div class="mb-3 row" *ngIf="leadRegisterForm.get('leadStatus')?.value === 'ClosedLost' || leadRegisterForm.get('leadStatus')?.value === 'NotFeasible'">
+          <div class="mb-3 row" >
             <label for="remarks" class="col-md-4 col-form-label">Remarks</label>
             <div class="col-md-8">
               <textarea
@@ -220,11 +192,21 @@
           </div>
 
           <div class="mt-4 d-grid">
-            <button class="btn btn-primary" type="submit" [disabled]="leadRegisterForm.invalid">
-              Register Lead
+            <button class="btn btn-primary" type="submit" [disabled]="leadRegisterForm.invalid || (leadRegisterForm.get('leadFeasibility')?.value === 'NotFeasible')">
+              Proceed For Quote
             </button>
+
+            
           </div>
         </form>
+
+        <div class="mt-4 d-grid">
+          <button class="btn btn-primary" (click)="closeLost()" 
+                  [disabled]="(leadRegisterForm.get('leadFeasibility')?.value !== 'NotFeasible') || leadRegisterForm.invalid">
+            Close Lost
+          </button>
+        </div>
+        
       </div>
     </div>
   </div>
