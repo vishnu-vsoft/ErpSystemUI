@@ -70,12 +70,12 @@ export class FetchLeadListComponent {
     });
 }
 
-getRowData(lead: Lead): void {
-    
-  this.selectedLead = lead; 
+
+
+navigate(lead :Lead){
+  this.selectedLead = lead;
   console.log('Selected Lead Data:', this.selectedLead);
-  this.route.navigate(['/leadDetails',this.selectedLead.Id])
-  
+  this.route.navigate(['/viewLead',this.selectedLead.Id])
 }
 
 }

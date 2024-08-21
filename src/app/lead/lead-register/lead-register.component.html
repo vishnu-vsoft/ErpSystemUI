@@ -1,16 +1,16 @@
-
-<div class="container-fluid">
-  
-  
-
-<div class="main-content">
-  <div class="card overflow-hidden">
+<div class="layout">
+  <app-topbar class="topbar"></app-topbar>
+  <div class="content">
+  <app-sidenav class="sidenav"></app-sidenav>
+<div class="container-fluid" >
+<div class="main-content" >
+  <div class="card overflow-hidden subcontainer">
     <div class="bg-primary-subtle">
-      <div class="row">
-        <div class="col-9">
-          <div class="text-primary p-4">
-            <h5 class="text-primary">Lead Registration</h5>
-            <p>Fill out the form to register a new lead.</p>
+      <div class="row"  style="background-color: #007bff;">
+        <div class="col-9" >
+          <div class="text-primary p-4" >
+            <h5 class="text-white" style="font-size: x-large;">Lead Registration</h5>
+            <p style="color: white;">Fill out the form to register a new lead.</p>
           </div>
         </div>
         <div class="col-3 align-self-end">
@@ -47,13 +47,17 @@
                 id="leadName"
                 formControlName="leadName"
                 class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadName')?.errors }"
+                [ngClass]="{ 'is-invalid': (leadRegisterForm.get('leadName')?.touched || submitted) && leadRegisterForm.get('leadName')?.invalid }"
                 placeholder="Enter name"
               />
-              <div *ngIf="submitted && leadRegisterForm.get('leadName')?.errors" class="invalid-feedback">
+              <div *ngIf="((leadRegisterForm.get('leadName')?.touched || submitted) && leadRegisterForm.get('leadName')?.invalid )" class="invalid-feedback">
                 <div *ngIf="leadRegisterForm.get('leadName')?.hasError('required')">
                   Name is required
                 </div>
+                <div *ngIf="leadRegisterForm.get('leadName')?.hasError('minlength')">
+                  Lead name must have at least 5 letters
+                </div>
+                
               </div>
             </div>
           </div>
@@ -66,18 +70,21 @@
                 id="leadMobileNo"
                 formControlName="leadMobileNo"
                 class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('leadMobileNo')?.errors }"
+                [ngClass]="{ 'is-invalid': (leadRegisterForm.get('leadMobileNo')?.touched || submitted) && leadRegisterForm.get('leadMobileNo')?.invalid }"
                 placeholder="Enter mobile number"
                 maxlength="10"
-                minlength="10"
               />
-              <div *ngIf="submitted && leadRegisterForm.get('leadMobileNo')?.errors" class="invalid-feedback">
+              <div *ngIf="(leadRegisterForm.get('leadMobileNo')?.touched || submitted) && leadRegisterForm.get('leadMobileNo')?.invalid" class="invalid-feedback">
                 <div *ngIf="leadRegisterForm.get('leadMobileNo')?.hasError('required')">
                   Mobile number is required
+                </div>
+                <div *ngIf="leadRegisterForm.get('leadMobileNo')?.hasError('minlength') || leadRegisterForm.get('leadMobileNo')?.hasError('maxlength')">
+                  Mobile number must be exactly 10 digits
                 </div>
               </div>
             </div>
           </div>
+          
 
           <div class="mb-3 row">
             <label for="location" class="col-md-4 col-form-label">Location</label>
@@ -87,16 +94,17 @@
                 id="location"
                 formControlName="location"
                 class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('location')?.errors }"
+                [ngClass]="{ 'is-invalid': (leadRegisterForm.get('location')?.touched || submitted) && leadRegisterForm.get('location')?.invalid }"
                 placeholder="Enter location"
               />
-              <div *ngIf="submitted && leadRegisterForm.get('location')?.errors" class="invalid-feedback">
+              <div *ngIf="(leadRegisterForm.get('location')?.touched || submitted) && leadRegisterForm.get('location')?.invalid" class="invalid-feedback">
                 <div *ngIf="leadRegisterForm.get('location')?.hasError('required')">
                   Location is required
                 </div>
               </div>
             </div>
           </div>
+          
 
           <div class="mb-3 row">
             <label for="leadAddress" class="col-md-4 col-form-label">Address</label>
@@ -140,10 +148,10 @@
                 id="highLevelRequirement"
                 formControlName="highLevelRequirement"
                 class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('highLevelRequirement')?.errors }"
+                [ngClass]="{ 'is-invalid': (leadRegisterForm.get('highLevelRequirement')?.touched || submitted) && leadRegisterForm.get('highLevelRequirement')?.invalid }"
                 placeholder="Enter requirement"
               ></textarea>
-              <div *ngIf="submitted && leadRegisterForm.get('highLevelRequirement')?.errors" class="invalid-feedback">
+              <div *ngIf="(leadRegisterForm.get('highLevelRequirement')?.touched || submitted) && leadRegisterForm.get('highLevelRequirement')?.invalid" class="invalid-feedback">
                 <div *ngIf="leadRegisterForm.get('highLevelRequirement')?.hasError('required')">
                   Requirement is required
                 </div>
@@ -180,10 +188,10 @@
                 id="remarks"
                 formControlName="remarks"
                 class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && leadRegisterForm.get('remarks')?.errors }"
+                [ngClass]="{ 'is-invalid': (leadRegisterForm.get('remarks')?.touched || submitted) && leadRegisterForm.get('remarks')?.invalid}"
                 placeholder="Enter remarks"
               ></textarea>
-              <div *ngIf="submitted && leadRegisterForm.get('remarks')?.errors" class="invalid-feedback">
+              <div *ngIf=" (leadRegisterForm.get('remarks')?.touched || submitted) && leadRegisterForm.get('remarks')?.invalid" class="invalid-feedback">
                 <div *ngIf="leadRegisterForm.get('remarks')?.hasError('required')">
                   Remarks are required
                 </div>
@@ -211,5 +219,7 @@
     </div>
   </div>
   <!-- end card -->
+</div>
+</div>
 </div>
 </div>

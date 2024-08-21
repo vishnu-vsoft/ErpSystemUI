@@ -1,185 +1,143 @@
-<div class="account-pages my-5 pt-sm-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6 col-xl-5">
-          <div class="card overflow-hidden">
-            <div class="bg-primary-subtle">
-              <div class="row">
-                <div class="col-9">
-                  <div class="text-primary p-4">
-                    <h5 class="text-primary">Lead Details</h5>
-                  </div>
-                </div>
-                <div class="col-5 align-self-end">
-                  <img src="" alt="" class="img-fluid">
-                </div>
+<div class="page-container">
+  <!-- Sidebar -->
+  <app-sidenav class="sidenav"></app-sidenav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Topbar -->
+    <app-topbar class="topbar"></app-topbar>
+    
+    <!-- Form Container -->
+    <div class="container mt-4">
+      <form [formGroup]="leadEditForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+        <div class="row mb-4">
+          <div class="col-12">
+            <div class="card shadow-sm">
+              <div class="card-header text-white text-center">
+                <h1 class="card-title">Lead Details</h1>
+              </div>
+              <div class="card-body">
+                <p class="mb-0">Please fill in the details below to update the lead information.</p>
               </div>
             </div>
-            <div class="card-body pt-0">
-              <div>
-                <a routerLink="/">
-                  <div class="avatar-md profile-user-wid mb-4">
-                    <span class="avatar-title rounded-circle bg-light">
-                      <img src="" alt="" class="rounded-circle" height="34">
-                    </span>
-                  </div>
-                </a>
-              </div>
-              <div class="p-2">
-                <form [formGroup]="leadEditForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
-                  <!-- Success Message -->
-                  <div *ngIf="successmsg" class="alert alert-success" role="alert">
-                    {{ successmsg }}
-                  </div>
-  
-                  <!-- Error Message -->
-                  <div *ngIf="error" class="alert alert-danger" role="alert">
-                    {{ error }}
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="leadName" class="form-label">Name</label>
-                    <input
-                      type="text"
-                      id="leadName"
-                      formControlName="leadName"
-                      class="form-control"
-                      
-                    />
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="leadMobileNo" class="form-label">Mobile No</label>
-                    <input
-                      type="tel"
-                      id="leadMobileNo"
-                      formControlName="leadMobileNo"
-                      class="form-control"
-                      
-                    />
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="location" class="form-label">Location</label>
-                    <input
-                      type="text"
-                      id="location"
-                      formControlName="location"
-                      class="form-control"
-                      
-                    />
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="leadAddress" class="form-label">Address</label>
-                    <input
-                      type="text"
-                      id="leadAddress"
-                      formControlName="leadAddress"
-                      class="form-control"
-                      
-                    />
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="leadEmail" class="form-label">Email</label>
-                    <input
-                      type="email"
-                      id="leadEmail"
-                      formControlName="leadEmail"
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': submitted && leadEditForm.get('leadEmail')?.errors }"
-                      placeholder="Enter email"
-                      
-                    />
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="highLevelRequirement" class="form-label">Requirement</label>
-                    <textarea
-                      id="highLevelRequirement"
-                      formControlName="highLevelRequirement"
-                      class="form-control"
-                      
-                    ></textarea>
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="leadStatus" class="form-label">Status</label>
-                    <select
-                      id="leadStatus"
-                      formControlName="leadStatus"
-                      class="form-select"
-                      [ngClass]="{ 'is-invalid': submitted && leadEditForm.get('leadStatus')?.errors }"
-                    >
-                      <option value="">Select Status</option>
-                      
-                      <option value="Open">Open</option>
-                      <option value="Closed">Closed</option>
-                      <option value="ClosedWon">Closed Won</option>
-                      <option value="ClosedLost">Closed Lost</option>
-                    </select>
-                    <div *ngIf="submitted && leadEditForm.get('leadStatus')?.errors" class="invalid-feedback">
-                      <div *ngIf="leadEditForm.get('leadStatus')?.hasError('required')">
-                        Status is required
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="leadFeasibility" class="form-label">Feasibility</label>
-                    <select
-                      id="leadFeasibility"
-                      formControlName="leadFeasibility"
-                      class="form-select"
-                      [ngClass]="{ 'is-invalid': submitted && leadEditForm.get('leadFeasibility')?.errors }"
-                    >
-                      <option value="NotFeasible">Not Feasible</option>
-                      <option value="Feasible">Feasible</option>
-                      <option value="HighFeasible">High Feasible</option>
-                    </select>
-                    <div *ngIf="submitted && leadEditForm.get('leadFeasibility')?.errors" class="invalid-feedback">
-                      <div *ngIf="leadEditForm.get('leadFeasibility')?.hasError('required')">
-                        Feasibility is required
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="mb-3">
-                    <label for="remarks" class="form-label">Remarks</label>
-                    <textarea
-                      id="remarks"
-                      formControlName="remarks"
-                      class="form-control"
-                      placeholder="Enter remarks"
-                      required
-                    ></textarea>
-                    <div *ngIf="submitted && leadEditForm.get('remarks')?.errors" class="invalid-feedback">
-                      <div *ngIf="leadEditForm.get('remarks')?.hasError('required')">
-                        Remarks are required
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="mt-4 d-grid">
-                    <button class="btn btn-primary" type="submit" [disabled]="leadEditForm.invalid">
-                      Update Lead
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- end card -->
-  
-          <div class="mt-5 text-center">
-            <p>© {{year}} ErpSystem. <i class="mdi mdi-heart text-danger"></i></p>
           </div>
         </div>
-        <!-- end col -->
+
+        <div class="row gx-3 gy-4">
+          <!-- Left Pane -->
+          <div class="col-md-6 d-flex">
+            <div class="card shadow-sm border-light flex-fill">
+              <div class="card-body">
+                <!-- Lead Name -->
+                <div class="mb-3">
+                  <label for="leadName" class="form-label">Name</label>
+                  <input type="text" id="leadName" formControlName="leadName" class="form-control"/>
+                </div>
+
+                <!-- Lead Mobile No -->
+                <div class="mb-3">
+                  <label for="leadMobileNo" class="form-label">Mobile No</label>
+                  <input type="tel" id="leadMobileNo" formControlName="leadMobileNo" class="form-control"/>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                  <label for="location" class="form-label">Location</label>
+                  <input type="text" id="location" formControlName="location" class="form-control"/>
+                </div>
+
+                <!-- Lead Address -->
+                <div class="mb-3">
+                  <label for="leadAddress" class="form-label">Address</label>
+                  <input type="text" id="leadAddress" formControlName="leadAddress" class="form-control"/>
+                </div>
+
+                <!-- Lead Email -->
+                <div class="mb-3">
+                  <label for="leadEmail" class="form-label">Email</label>
+                  <input type="email" id="leadEmail" formControlName="leadEmail" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && leadEditForm.get('leadEmail')?.errors }"
+                         placeholder="Enter email"/>
+                  <div *ngIf="submitted && leadEditForm.get('leadEmail')?.errors" class="invalid-feedback">
+                    <div *ngIf="leadEditForm.get('leadEmail')?.hasError('required')">
+                      Email is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Pane -->
+          <div class="col-md-6 d-flex">
+            <div class="card shadow-sm border-light flex-fill">
+              <div class="card-body">
+                <!-- Requirement -->
+                <div class="mb-3">
+                  <label for="highLevelRequirement" class="form-label">Requirement</label>
+                  <textarea id="highLevelRequirement" formControlName="highLevelRequirement" class="form-control"></textarea>
+                </div>
+
+                <!-- Lead Status -->
+                <div class="mb-3">
+                  <label for="leadStatus" class="form-label">Status</label>
+                  <select id="leadStatus" formControlName="leadStatus" class="form-select"
+                          [ngClass]="{ 'is-invalid': submitted && leadEditForm.get('leadStatus')?.errors }">
+                    <option value="">Select Status</option>
+                    <option value="Open">Open</option>
+                    <option value="ClosedWon">Closed Won</option>
+                    <option value="ClosedLost">Closed Lost</option>
+                  </select>
+                  <div *ngIf="submitted && leadEditForm.get('leadStatus')?.errors" class="invalid-feedback">
+                    <div *ngIf="leadEditForm.get('leadStatus')?.hasError('required')">
+                      Status is required
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Lead Feasibility -->
+                <div class="mb-3">
+                  <label for="leadFeasibility" class="form-label">Feasibility</label>
+                  <select id="leadFeasibility" formControlName="leadFeasibility" class="form-select"
+                          [ngClass]="{ 'is-invalid': submitted && leadEditForm.get('leadFeasibility')?.errors }">
+                    <option value="NotFeasible">Not Feasible</option>
+                    <option value="Feasible">Feasible</option>
+                    <option value="HighFeasible">High Feasible</option>
+                  </select>
+                  <div *ngIf="submitted && leadEditForm.get('leadFeasibility')?.errors" class="invalid-feedback">
+                    <div *ngIf="leadEditForm.get('leadFeasibility')?.hasError('required')">
+                      Feasibility is required
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Remarks -->
+                <div class="mb-3">
+                  <label for="remarks" class="form-label">Remarks</label>
+                  <textarea id="remarks" formControlName="remarks" class="form-control" placeholder="Enter remarks" required></textarea>
+                  <div *ngIf="submitted && leadEditForm.get('remarks')?.errors" class="invalid-feedback">
+                    <div *ngIf="leadEditForm.get('remarks')?.hasError('required')">
+                      Remarks are required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Update Lead Button -->
+        <div class="mt-4 d-grid">
+          <button class="btn btn-primary" type="submit" [disabled]="leadEditForm.invalid">
+            Update Lead
+          </button>
+        </div>
+      </form>
+
+      <!-- Footer -->
+      <div class="mt-5 text-center">
+        <p>© {{year}} ErpSystem. <i class="mdi mdi-heart text-danger"></i></p>
       </div>
-      <!-- end row -->
     </div>
-    <!-- end container -->
   </div>
-  
+</div>

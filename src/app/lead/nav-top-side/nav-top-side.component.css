@@ -1,0 +1,139 @@
+
+.layout-container {
+    display: flex;
+    height: 100vh; 
+}
+
+.sidenav {
+    width: 250px;
+    background-color: #ffffff; 
+    color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #007bff; 
+    color: #ffffff;
+}
+
+.logo {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.logo-text {
+    margin-left: 1rem;
+    font-size: 1.25rem;
+}
+
+.sidenav-list {
+    flex: 1;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.sidenav-item {
+    margin: 0;
+}
+
+.sidenav-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.sidenav-link:hover {
+    background-color: #0d6efd; 
+}
+
+.sidenav-link-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    color: black;
+}
+
+.sidenav-link-text {
+    color: black;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.navbar-custom {
+    background-color: #0d6efd; 
+    height: 54px;
+    width: calc(100% - 250px); 
+    margin-left: 0px; 
+    position: fixed;
+    top: 0;
+    left: 250px;
+    z-index: 1000; 
+}
+
+
+.navbar-logo a {
+    font-size: 1.8em;
+    color: white;
+    text-decoration: none;
+}
+
+
+.navbar-menu .nav-link {
+    color: white;
+    font-size: 1.2em; 
+}
+
+
+.navbar-menu .nav-link:hover {
+    color: black; 
+}
+
+
+.search-input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #0d6efd; 
+    outline: none;
+    background-color: white;
+    color: black;
+}
+
+
+.search-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+
+.profile-pic {
+    border-radius: 50%;
+    border: 2px solid #0d6efd; 
+    width: 1.45cm;
+}
+
+.components {
+    flex: 1;  
+    overflow: hidden;  
+    height: calc(100vh - 50px);  
+}

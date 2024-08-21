@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Location } from '@angular/common';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +11,24 @@ export class AppComponent {
   title = 'ErpSystemUI';
   router:string | null = null;
   showSidenav : boolean = false;
+  
+  location = inject(Location)
+    back(){
+      this.location.back()
+    }
 
-  constructor(){}
+    forward(){
+      this.location.forward()
+      }
+      
+
+
+  constructor(private route:Router){  }
+  
+  navigateTest(){
+    this.route.navigate(['/test-window'])
+  }
+
   ngOnInit(){
     
   }

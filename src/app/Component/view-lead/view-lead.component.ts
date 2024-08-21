@@ -4,6 +4,8 @@ import { FetchLeadListComponent } from '../../lead/fetch-lead-list/fetch-lead-li
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Lead } from 'src/app/Model/lead';
+import { SidenavComponent } from '../../lead/sidenav/sidenav.component';
+
 
 @Component({
   selector: 'app-view-lead',
@@ -13,12 +15,13 @@ import { Lead } from 'src/app/Model/lead';
 export class ViewLeadComponent {
   leadEditForm! : FormGroup;
   id : string | null = null;
-  isRemarksVisible: boolean = false;
-  successmsg: string | null = null;
+  isRemarksVisible : boolean = false;
+  successmsg : string | null = null;
   error: string | null = null;
   year : number |null = null;
   submitted = false;
-  lead!:Lead;
+  lead! : Lead;
+  isSidebarMinimized: boolean = false;
 
   constructor(private service:LeadServiceService,
     private route:ActivatedRoute,
@@ -26,7 +29,7 @@ export class ViewLeadComponent {
     private router:Router){
       this.leadEditForm = this.fb.group({
         leadName: ['', Validators.required],  
-        leadMobileNo: ['', Validators.required],
+        leadMobileNo: ['',Validators.required],
         location: ['', Validators.required],
         leadAddress: ['', Validators.required],
         leadEmail: ['', [Validators.required, Validators.email]],
@@ -54,6 +57,7 @@ export class ViewLeadComponent {
         }
     })
   }
+
 
   fetchSingleLeadDetails(id : string){
     this.service.fetchSingleLead(id).subscribe(
@@ -85,7 +89,7 @@ export class ViewLeadComponent {
   
   onSubmit(): void {
     this.submitted = true;
-
+    debugger
     if (this.leadEditForm.valid) {
       this.lead = { ...this.leadEditForm.value, //payload
         Id: this.id

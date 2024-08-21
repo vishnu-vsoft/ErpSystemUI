@@ -1,0 +1,55 @@
+<!-- Container to hold both the side navbar and top navbar -->
+<div class="layout-container">
+    <!-- Side Navbar -->
+    <div class="sidenav" [ngClass]="isSidebarMinimized ? 'sidenav-collapse' : ''">
+        <div class="logo-container" style="background-color: primary;">
+            <button class="logo">ERP</button>
+            <div class="logo-text" *ngIf="isSidebarMinimized">Sidebar test</div>
+        </div>
+        <div class="sidenav-list">
+            <div class="sidenav-item" *ngFor="let data of navData">
+                <a class="sidenav-link" [routerLink]="[data.routeLink]">
+                    <i class="sidenav-link-icon" [class]="data.icon"></i>
+                    <span class="sidenav-link-text">{{data.label}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="components">
+        <app-lead-register ></app-lead-register>
+    </div>
+    
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-logo" href="#">MyApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center imageDiv">
+                    <div class="input-group">
+                        <input type="text" class="form-control search-input" placeholder="Search">
+                        <button class="btn search-btn" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <img src="assets/image/download.jpg" alt="Description of the image" class="profile-pic ms-3">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

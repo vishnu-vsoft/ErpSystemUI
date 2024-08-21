@@ -33,7 +33,7 @@ export class SignInComponent {
   get f() { return this.signupForm.controls; }
   clickable():void{
     // alert("clicked");
-    this.router.navigate(['/fetchLeadList']);
+    this.router.navigate(['fetchLeadList']);
   }
 
   
@@ -44,7 +44,7 @@ export class SignInComponent {
     const name = this.f['username'].value;
     const password = this.f['password'].value;
 
-    this.router.navigate(['/leadRegister']);
+    this.router.navigate(['leadRegister']);
 
     
     

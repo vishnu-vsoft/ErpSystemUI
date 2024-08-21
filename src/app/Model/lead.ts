@@ -9,4 +9,8 @@ export class Lead {
     LeadStatus:string = "";
     LeadFeasibility:string = "";
     Remarks!:string;
+    CreatedDate!:Date;
+    UpdatedDate!:Date;
+    CreatedBy!:string;
+    UpdatedBy!:string;
 }

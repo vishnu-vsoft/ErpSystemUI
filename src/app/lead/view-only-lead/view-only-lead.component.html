@@ -1,0 +1,96 @@
+<div class="layout">
+    <app-sidenav class="sidenav"></app-sidenav>
+    <div class="content">
+        <app-topbar class="topbar"></app-topbar>
+        <div class="container-fluid py-5 custom-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card glass-card border-light shadow-lg">
+                        <div class="bg-lightblue rounded-corners text-center p-4" style="background-color: #007bff; border-radius: 5px;">
+                            <div class="row" >
+                                <div class="col-12" >
+                                    <div class="text-primary">
+                                        <h5 class="text-white title-size" style="font-size: xx-large;">Lead Details</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-body pt-0">
+                            <div class="p-4">
+                                <table class="table table-striped table-lightblue" *ngIf="lead">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-darkblue">Field</th>
+                                            <th class="text-darkblue">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Name</th>
+                                            <td class="text-darkblue">{{lead.LeadName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Mobile No</th>
+                                            <td class="text-darkblue">{{lead.LeadMobileNo}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Location</th>
+                                            <td class="text-darkblue">{{lead.Location}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Address</th>
+                                            <td class="text-darkblue">{{lead.LeadAddress}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Email</th>
+                                            <td class="text-darkblue">{{lead.LeadEmail}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Requirement</th>
+                                            <td class="text-darkblue">{{lead.HighLevelRequirement}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Status</th>
+                                            <td class="text-darkblue">{{lead.LeadStatus}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Feasibility</th>
+                                            <td class="text-darkblue">{{lead.LeadFeasibility}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Remarks</th>
+                                            <td class="text-darkblue">{{lead.Remarks}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Created At</th>
+                                            <td class="text-darkblue">{{lead.CreatedDate | date:'dd MMM yyyy HH:mm'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Created By</th>
+                                            <td class="text-darkblue">{{lead.CreatedBy}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Updated At</th>
+                                            <td class="text-darkblue">{{lead.UpdatedDate | date:'dd MMM yyyy HH:mm'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" class="text-darkblue">Updated By</th>
+                                            <td class="text-darkblue">{{lead.UpdatedBy}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="mt-4 d-grid">
+                                    <button class="btn btn-primary" (click)="getRowData(lead)">
+                                        Edit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

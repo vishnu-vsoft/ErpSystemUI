@@ -1,145 +1,145 @@
-
-
 <div class="account-pages my-5 pt-sm-5">
- 
-    <div class="container">
+
+<div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+
+
+  <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6 col-xl-5">
-          <div class="card overflow-hidden">
-            <div class="bg-primary-subtle">
-              <div class="row">
-                <div class="col-7">
-                  <div class="text-primary p-4">
-                    <h5 class="text-primary">Free Register</h5>
+          <div class="col-md-8 col-lg-6 col-xl-5">
+              <div class="card overflow-hidden">
+                  <div class="bg-subtle">
+                      <div class="row">
+                          <div class="col-7">
+                              <div class="text-primary p-4">
+                                  <h5 class="text-dark" style="text-align: center; font-size: x-large; padding-top: 20px;">SIGN IN</h5>
+                              </div>
+                          </div>
+                          <div class="col-5 align-self-end">
+                              <img src="" alt="" class="img-fluid">
+                          </div>
+                      </div>
                   </div>
-                </div>
-                <div class="col-5 align-self-end">
-                  <img src="" alt="" class="img-fluid">
-                </div>
-              </div>
-            </div>
-            <div class="card-body pt-0">
-              <div>
-                <a routerLink="/">
-                  <div class="avatar-md profile-user-wid mb-4">
-                    <span class="avatar-title rounded-circle bg-light">
-                      <img src="" alt="" class="rounded-circle" height="34">
-                    </span>
+                  <div class="card-body pt-0">
+                      <div>
+                          <a routerLink="/">
+                              <div class="avatar-md profile-user-wid mb-4">
+                                  <span class="avatar-title rounded-circle bg-light">
+                                      <img src="" alt="" class="rounded-circle" height="34">
+                                  </span>
+                              </div>
+                          </a>
+                      </div>
+                      <div class="p-2">
+                          <form class="needs-validation" [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+                              <!-- Success Message -->
+                              <div *ngIf="successmsg" class="alert alert-success" role="alert">
+                                  Registration successful.
+                              </div>
+
+                              <!-- Error Message -->
+                              <div *ngIf="error" class="alert alert-danger" role="alert">
+                                  {{ error }}
+                              </div>
+
+                              <div class="mb-3">
+                                  <label for="username" class="form-label">Username</label>
+                                  <input
+                                      type="text"
+                                      formControlName="username"
+                                      class="form-control"
+                                      [ngClass]="{ 'is-invalid': submitted && signupForm.get('username')?.errors }"
+                                      id="username"
+                                      placeholder="Enter username"/>
+                                  <div *ngIf="submitted && signupForm.get('username')?.errors" class="invalid-feedback">
+                                      <div *ngIf="signupForm.get('username')?.hasError('required')">
+                                          Username is required
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="mb-3">
+                                  <label for="email" class="form-label">Email</label>
+                                  <input
+                                      type="email"
+                                      formControlName="email"
+                                      class="form-control"
+                                      [ngClass]="{ 'is-invalid': submitted && signupForm.get('email')?.errors }"
+                                      id="email"
+                                      placeholder="Email"
+                                  />
+                                  <div *ngIf="submitted && signupForm.get('email')?.errors" class="invalid-feedback">
+                                      <div *ngIf="signupForm.get('email')?.hasError('required')">
+                                          Email is required
+                                      </div>
+                                      <div *ngIf="signupForm.get('email')?.hasError('email')">
+                                          Email must be a valid email address
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="mb-3">
+                                  <label for="password" class="form-label">Password</label>
+                                  <input
+                                      type="password"
+                                      formControlName="password"
+                                      class="form-control"
+                                      [ngClass]="{ 'is-invalid': submitted && signupForm.get('password')?.errors }"
+                                      id="password"
+                                      placeholder="Password"/>
+                                  <div *ngIf="submitted && signupForm.get('password')?.errors" class="invalid-feedback">
+                                      <div *ngIf="signupForm.get('password')?.hasError('required')">
+                                          Password is required
+                                      </div>
+                                  </div>
+                              </div>
+
+                              <div class="mt-4 d-grid">
+                                  <button class="btn btn-primary" type="submit">Register</button>
+                              </div>
+
+                              <div class="mt-4 d-grid">
+                                  <button class="btn btn-primary" (click)="clickable()">View Lead</button>
+                              </div>
+
+                              <div class="mt-4 text-center">
+                                  <h5 class="font-size-14 mb-3">Sign in with</h5>
+                                  <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                          <a href="javascript:void(0)" class="social-list-item bg-primary text-white border-primary">
+                                              <i class="mdi mdi-facebook"></i>
+                                          </a>
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <a href="javascript:void(0)" class="social-list-item bg-info text-white border-info">
+                                              <i class="mdi mdi-twitter"></i>
+                                          </a>
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <a href="javascript:void(0)" class="social-list-item bg-danger text-white border-danger">
+                                              <i class="mdi mdi-google"></i>
+                                          </a>
+                                      </li>
+                                  </ul>
+                              </div>
+
+                              <div class="mt-4 text-center">
+                                  <p class="mb-0">By registering you agree to the system <a href="javascript:void(0);" class="text-primary">Terms of Use</a></p>
+                              </div>
+                          </form>
+                      </div>
                   </div>
-                </a>
               </div>
-              <div class="p-2">
-
-                <form class="needs-validation" [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
-                    <!-- Success Message -->
-                    <div *ngIf="successmsg" class="alert alert-success" role="alert">
-                      Registration successful.
-                    </div>
-                  
-                    <!-- Error Message -->
-                    <div *ngIf="error" class="alert alert-danger" role="alert">
-                      {{ error }}
-                    </div>
-                  
-                    <div class="mb-3">
-                      <label for="username" class="form-label">Username</label>
-                      <input
-                        type="text"
-                        formControlName="username"
-                        class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && signupForm.get('username')?.errors }"
-                        id="username"
-                        placeholder="Enter username"/>
-                      <div *ngIf="submitted && signupForm.get('username')?.errors" class="invalid-feedback">
-                        <div *ngIf="signupForm.get('username')?.hasError('required')">
-                          Username is required
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        formControlName="email"
-                        class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && signupForm.get('email')?.errors }"
-                        id="email"
-                        placeholder="Email"
-                      />
-                      <div *ngIf="submitted && signupForm.get('email')?.errors" class="invalid-feedback">
-                        <div *ngIf="signupForm.get('email')?.hasError('required')">
-                          Email is required
-                        </div>
-                        <div *ngIf="signupForm.get('email')?.hasError('email')">
-                          Email must be a valid email address
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input
-                        type="password"
-                        formControlName="password"
-                        class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && signupForm.get('password')?.errors }"
-                        id="password"
-                        placeholder="Password"/>
-                      <div *ngIf="submitted && signupForm.get('password')?.errors" class="invalid-feedback">
-                        <div *ngIf="signupForm.get('password')?.hasError('required')">
-                          Password is required
-                        </div>
-                      </div>
-                    </div>
-                  
-                    <div class="mt-4 d-grid">
-                      <button class="btn btn-primary"  type="submit" >Register</button>
-                    </div>
-
-                    <div class="mt-4 d-grid">
-                      <button class="btn btn-primary"  (click)="clickable()">View Lead</button>
-                    </div>
-                  
-                    <div class="mt-4 text-center">
-                      <h5 class="font-size-14 mb-3">Sign in with</h5>
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <a href="javascript:void(0)" class="social-list-item bg-primary text-white border-primary">
-                            <i class="mdi mdi-facebook"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="javascript:void(0)" class="social-list-item bg-info text-white border-info">
-                            <i class="mdi mdi-twitter"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="javascript:void(0)" class="social-list-item bg-danger text-white border-danger">
-                            <i class="mdi mdi-google"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  
-                    <div class="mt-4 text-center">
-                      <p class="mb-0">By registering you agree to the system <a href="javascript:void(0);" class="text-primary">Terms of Use</a></p>
-                    </div>
-                  </form>
-                  
+              <!-- end card -->
+              <div class="mt-5 text-center">
+                  <p>Already have an account ? <a routerLink="/auth/login" class="fw-medium text-primary"> Login</a></p>
+                  <p>© {{year}} ErpSystem. <i class="mdi mdi-heart text-danger"></i></p>
               </div>
-            </div>
-          </div>
-          <!-- end card -->
-  
-          <div class="mt-5 text-center">
-            <p>Already have an account ? <a routerLink="/auth/login" class="fw-medium text-primary"> Login</a>
-            </p>
-            <p>© {{year}} ErpSystem. <i class="mdi mdi-heart text-danger"></i></p>
-          </div>
-        </div> <!-- end col -->
+          </div> <!-- end col -->
       </div>
       <!-- end row -->
-    </div>
-    <!-- end container -->
   </div>
+  <!-- end container -->
+</div>

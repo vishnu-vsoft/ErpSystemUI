@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent {
-
+  imagePath : string = "D:\ErpSystemUI\src\assets\image\download.jpg"
 }

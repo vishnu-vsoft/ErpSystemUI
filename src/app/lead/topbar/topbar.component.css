@@ -1,45 +1,36 @@
-.header {
-    background: #263238;
-    color: #fff;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+.navbar-custom {
+    background-color: #0d6efd; 
+    height: 50px;
+    width: 100%;
 }
-
-.header .search-bar {
-    flex-grow: 1;
-    margin: 0 1.5rem;
+.navbar-logo a {
+    font-size: 1.8em;
+    color: white;
+    text-decoration: none;
 }
-
-.header .profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+.navbar-menu .nav-link {
+    color: white;
+    font-size: 1.2em; 
 }
-
-.nav-item .nav-link {
-    color: #f3f3f3;
+.navbar-menu .nav-link:hover {
+    color: black; 
 }
-
-.nav-item .nav-link.active {
-    color: #fff;
-}
-
-.nav-item .nav-link.disabled {
-    color: #868e96;
-}
-
 .search-input {
-    background: #37474f;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #0d6efd; 
+    outline: none;
+    background-color: white;
+    color: black;
+}
+.search-btn {
+    background-color: transparent;
     border: none;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
+    color: white;
 }
 
-.search-input::placeholder {
-    color: #cfd8dc;
+.profile-pic {
+    border-radius: 50%;
+    border: 2px solid #0d6efd; 
+    width: 1.45cm;
 }
